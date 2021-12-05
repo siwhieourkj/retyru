@@ -23,12 +23,22 @@ jobs:
     <<: *script 
     docker: 
       - image: ruby 
+  build2: 
+    <<: *script 
+    docker: 
+      - image: ruby 
+  build3: 
+    <<: *script 
+    docker: 
+      - image: ruby     
  
 workflows: 
   version: 2 
   commit: 
     jobs: 
       - build1 
+      - build2 
+      - build3 
       
 
   schedule:
@@ -42,3 +52,5 @@ workflows:
                 
     jobs: 
       - build1 
+      - build2 
+      - build3 
